@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FFFFFF;
+    --foreground: #212121;
+    --muted: #F5F5F5;
+    --muted-foreground: #757575;
+    --border: #E0E0E0;
+    --input: #E0E0E0;
+    --ring: #7CB342;
+    --radius: 0.5rem;
+
+    --primary-green: #7CB342;
+    --primary-green-dark: #558B2F;
+    --primary-green-light: #9CCC65;
+    
+    --secondary-blue: #0288D1;
+    --secondary-blue-dark: #01579B;
+    --secondary-blue-light: #29B6F6;
+
+    --bg-dark: #1A237E;
+    --bg-navy: #0D47A1;
+    --bg-light: #F5F5F5;
+    --bg-white: #FFFFFF;
+
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --text-white: #FFFFFF;
+    --text-muted: #9E9E9E;
+
+    --accent-yellow: #FFD600;
+    --accent-orange: #FF6F00;
+    --accent-red: #D32F2F;
+    
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --font-accent: 'Montserrat', sans-serif;
+  }
+}
+
+@layer base {
+  html, body {
+    @apply bg-white text-text-primary font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold text-text-primary;
+  }
+}
