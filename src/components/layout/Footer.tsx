@@ -1,65 +1,153 @@
 import { Link } from 'react-router-dom';
+import { Facebook, Instagram, Youtube, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-bg-dark text-text-white pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-bg-dark text-white relative overflow-hidden pt-20 pb-8 rounded-t-[3rem] mt-10">
+      {/* Decorative glows */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-primary-green opacity-10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary-blue opacity-10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+
           {/* Brand */}
-          <div>
-            <Link to="/" className="font-heading font-bold text-primary-green text-3xl tracking-tight block mb-4">
-              Anytime<span className="text-white">Cleaners</span>
+          <div className="space-y-5">
+            <Link to="/" className="inline-block group">
+              <div className="font-heading font-extrabold text-primary-green text-3xl tracking-tight group-hover:scale-105 transition-transform duration-300">
+                Anytime<span className="text-white">Cleaners</span>
+              </div>
             </Link>
-            <p className="text-text-muted mb-6">"we clean it, we mean it"</p>
-            <div className="flex space-x-4">
-              {/* Social Icons Placeholders */}
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-green transition-colors cursor-pointer">FB</div>
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-green transition-colors cursor-pointer">IG</div>
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-green transition-colors cursor-pointer">YT</div>
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-green transition-colors cursor-pointer">LI</div>
+            <p className="text-white/70 font-medium italic">"we clean it, we mean it"</p>
+            <p className="text-white/50 text-sm leading-relaxed pr-4">
+              Pioneering the 'Green-Clean' revolution across Australia — serving commercial and residential clients with guaranteed satisfaction.
+            </p>
+            <div className="flex gap-3 pt-1">
+              {[
+                { Icon: Facebook,  label: 'Facebook' },
+                { Icon: Instagram, label: 'Instagram' },
+                { Icon: Youtube,   label: 'YouTube' },
+                { Icon: Linkedin,  label: 'LinkedIn' },
+              ].map(({ Icon, label }) => (
+                <a
+                  key={label}
+                  href="#"
+                  aria-label={label}
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:bg-primary-green hover:text-white hover:border-primary-green hover:-translate-y-1 transition-all duration-300"
+                >
+                  <Icon size={17} />
+                </a>
+              ))}
             </div>
           </div>
-          
+
           {/* Services */}
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6 text-white border-b border-white/10 pb-2">Services</h4>
+            <h4 className="font-heading font-semibold text-xl mb-6 pb-3 relative inline-block text-white">
+              Our Services
+              <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-primary-green rounded-full" />
+            </h4>
             <ul className="space-y-3">
-              <li><Link to="/commercial-cleaning" className="text-text-muted hover:text-primary-green transition-colors">Commercial Cleaning</Link></li>
-              <li><Link to="/residential-cleaning" className="text-text-muted hover:text-primary-green transition-colors">Residential Cleaning</Link></li>
-              <li><Link to="/commercial-cleaning" className="text-text-muted hover:text-primary-green transition-colors">Office Cleaning</Link></li>
-              <li><Link to="/commercial-cleaning" className="text-text-muted hover:text-primary-green transition-colors">Healthcare Cleaning</Link></li>
+              {[
+                { name: 'Commercial Cleaning',   path: '/commercial-cleaning' },
+                { name: 'Residential Cleaning',  path: '/residential-cleaning' },
+                { name: 'Office Cleaning',       path: '/commercial-cleaning#offices' },
+                { name: 'Healthcare Cleaning',   path: '/commercial-cleaning#healthcare' },
+                { name: 'Builders Cleaning',     path: '/commercial-cleaning#construction' },
+                { name: 'End of Lease',          path: '/residential-cleaning#end-of-lease' },
+              ].map((link, i) => (
+                <li key={i} className="group">
+                  <Link to={link.path} className="text-white/55 hover:text-white flex items-center transition-colors">
+                    <ArrowRight size={13} className="text-primary-green mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 flex-shrink-0" />
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-          
-          {/* Company Info */}
+
+          {/* Company */}
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6 text-white border-b border-white/10 pb-2">Company</h4>
+            <h4 className="font-heading font-semibold text-xl mb-6 pb-3 relative inline-block text-white">
+              Company Info
+              <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-primary-green rounded-full" />
+            </h4>
             <ul className="space-y-3">
-              <li><Link to="/more-info/about" className="text-text-muted hover:text-primary-green transition-colors">About Us</Link></li>
-              <li><Link to="/more-info/accreditation" className="text-text-muted hover:text-primary-green transition-colors">Accreditation</Link></li>
-              <li><Link to="/more-info/environment" className="text-text-muted hover:text-primary-green transition-colors">Green Cleaning</Link></li>
-              <li><Link to="/more-info/faq" className="text-text-muted hover:text-primary-green transition-colors">FAQ's</Link></li>
+              {[
+                { name: 'About Us',              path: '/more-info/about' },
+                { name: 'Accreditation',         path: '/more-info/accreditation' },
+                { name: 'Green Clean Revolution', path: '/more-info/environment' },
+                { name: 'Modern Slavery Policy', path: '/more-info/modern-slavery' },
+                { name: "FAQ's",                 path: '/more-info/faq' },
+                { name: 'Contact Us',            path: '/contact' },
+              ].map((link, i) => (
+                <li key={i} className="group">
+                  <Link to={link.path} className="text-white/55 hover:text-white flex items-center transition-colors">
+                    <ArrowRight size={13} className="text-primary-green mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 flex-shrink-0" />
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-          
-          {/* Contact & Newsletter */}
+
+          {/* Contact + Newsletter */}
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6 text-white border-b border-white/10 pb-2">Newsletter</h4>
-            <p className="text-text-muted mb-4 text-sm">Subscribe to get the latest cleaning tips and exclusive offers.</p>
-            <form className="flex">
-              <input type="email" placeholder="Your email address" className="bg-white/5 border border-white/10 focus:border-primary-green outline-none px-4 py-2 rounded-l-md w-full text-white" />
-              <button type="submit" className="bg-primary-green hover:bg-primary-green-dark px-4 py-2 rounded-r-md transition-colors font-medium">Subscribe</button>
+            <h4 className="font-heading font-semibold text-xl mb-6 pb-3 relative inline-block text-white">
+              Get In Touch
+              <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-primary-green rounded-full" />
+            </h4>
+
+            <div className="space-y-4 mb-7">
+              <div className="flex items-start gap-3">
+                <MapPin size={18} className="text-primary-green flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-white font-medium text-sm">Melbourne Office</p>
+                  <p className="text-white/50 text-sm mt-0.5">Ground Floor, 470 St Kilda Road,<br />Melbourne VIC 3004</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone size={18} className="text-primary-green flex-shrink-0" />
+                <a href="tel:0383857705" className="text-white/55 hover:text-white transition-colors text-sm">03 8385 7705</a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail size={18} className="text-primary-green flex-shrink-0" />
+                <a href="mailto:info@anytimecleaners.com.au" className="text-white/55 hover:text-white transition-colors text-sm break-all">
+                  info@anytimecleaners.com.au
+                </a>
+              </div>
+            </div>
+
+            <p className="text-white text-sm font-medium mb-3">Join Our Newsletter</p>
+            <form className="flex" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="Enter email address"
+                required
+                className="flex-1 min-w-0 bg-white/5 border border-white/15 focus:border-primary-green outline-none px-4 py-2.5 rounded-l-lg text-white text-sm placeholder:text-white/30 transition-colors"
+              />
+              <Button
+                type="submit"
+                className="rounded-l-none rounded-r-lg bg-primary-green hover:bg-primary-green-dark text-white px-5 transition-colors flex-shrink-0"
+              >
+                Subscribe
+              </Button>
             </form>
           </div>
         </div>
-        
-        {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-sm text-text-muted">
-          <p>Copyright © 2026 Anytime Cleaners. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link to="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
+
+        {/* Bottom bar */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
+          <p className="text-center md:text-left">
+            Copyright © {year} Anytime Cleaners. All rights reserved.
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            <Link to="/privacy-policy"   className="hover:text-primary-green transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-primary-green transition-colors">Terms of Service</Link>
+            <Link to="/cookie-policy"    className="hover:text-primary-green transition-colors">Cookie Policy</Link>
           </div>
         </div>
       </div>
