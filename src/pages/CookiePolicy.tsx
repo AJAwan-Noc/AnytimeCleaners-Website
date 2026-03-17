@@ -1,10 +1,23 @@
 import { motion } from 'framer-motion';
+import SEO from '@/components/seo/SEO';
+import { BreadcrumbSchema } from '@/components/seo/SchemaMarkup';
 
 export default function CookiePolicy() {
   const lastUpdated = "March 15, 2026";
 
   return (
     <div className="pt-32 pb-20 min-h-screen bg-gray-50">
+      <SEO 
+        title="Cookie Policy - How We Use Cookies"
+        description="Learn about Anytime Cleaners' cookie policy and how we use cookies to improve your user experience on our website."
+        canonical="https://anytimecleaners.com.au/cookie-policy"
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Cookie Policy', item: '/cookie-policy' }
+        ]}
+      />
       <div className="container mx-auto px-4 max-w-4xl">
         
         <motion.div 

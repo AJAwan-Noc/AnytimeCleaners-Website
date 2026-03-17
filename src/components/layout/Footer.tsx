@@ -36,7 +36,7 @@ export default function Footer() {
                   key={label}
                   href="#"
                   aria-label={label}
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:bg-primary-green hover:text-white hover:border-primary-green hover:-translate-y-1 transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:bg-primary-green hover:text-white hover:border-primary-green hover:-translate-y-1 transition-all duration-300 icon-rotate"
                 >
                   <Icon size={17} />
                 </a>
@@ -60,7 +60,7 @@ export default function Footer() {
                 { name: 'End of Lease',          path: '/residential-cleaning#end-of-lease' },
               ].map((link, i) => (
                 <li key={i} className="group">
-                  <Link to={link.path} className="text-white/55 hover:text-white flex items-center transition-colors">
+                  <Link to={link.path} className="text-white/55 hover:text-white flex items-center transition-colors hover-underline">
                     <ArrowRight size={13} className="text-primary-green mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 flex-shrink-0" />
                     <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
                   </Link>
@@ -86,7 +86,7 @@ export default function Footer() {
                 { name: 'Contact Us',            path: '/contact' },
               ].map((link, i) => (
                 <li key={i} className="group">
-                  <Link to={link.path} className="text-white/55 hover:text-white flex items-center transition-colors">
+                  <Link to={link.path} className="text-white/55 hover:text-white flex items-center transition-colors hover-underline">
                     <ArrowRight size={13} className="text-primary-green mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 flex-shrink-0" />
                     <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
                   </Link>
@@ -127,8 +127,9 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Enter email address"
+                aria-label="Email address for newsletter"
                 required
-                className="flex-1 min-w-0 bg-white/5 border border-white/15 focus:border-primary-green outline-none px-4 py-2.5 rounded-l-lg text-white text-sm placeholder:text-white/30 transition-colors"
+                className="flex-1 min-w-0 bg-white/5 border border-white/15 focus:border-primary-green outline-none px-4 py-2.5 rounded-l-lg text-white text-sm placeholder:text-white/30 transition-colors input-glow-focus"
               />
               <Button
                 type="submit"
@@ -146,9 +147,9 @@ export default function Footer() {
             Copyright © {year} Anytime Cleaners. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-            <Link to="/privacy-policy"   className="hover:text-primary-green transition-colors">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="hover:text-primary-green transition-colors">Terms of Service</Link>
-            <Link to="/cookie-policy"    className="hover:text-primary-green transition-colors">Cookie Policy</Link>
+            <Link to="/privacy-policy"   className="hover:text-primary-green transition-colors hover-underline">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-primary-green transition-colors hover-underline">Terms of Service</Link>
+            <Link to="/cookie-policy"    className="hover:text-primary-green transition-colors hover-underline">Cookie Policy</Link>
           </div>
         </div>
       </div>

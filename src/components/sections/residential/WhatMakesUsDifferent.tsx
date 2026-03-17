@@ -41,12 +41,14 @@ export default function WhatMakesUsDifferent() {
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] max-h-[600px] border-8 border-white"
+              className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] max-h-[600px] border-8 border-white will-change-transform"
             >
               <img 
                 src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop" 
-                alt="Professional Cleaning Team"
+                alt="Happy Anytime Cleaners professional cleaning a residential home in Melbourne"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
               
               {/* Overlay Badge */}

@@ -61,3 +61,126 @@
     color: #ffffff;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────────
+ * MICRO-INTERACTIONS & UTILITIES
+ * ────────────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  /* Link Underline Animation */
+  .hover-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .hover-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary-green);
+    transform-origin: bottom right;
+    transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .hover-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* Card Hover 3D & Shadow */
+  .hover-card-float {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  }
+  .hover-card-float:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(124, 179, 66, 0.3); /* primary-green */
+  }
+
+  /* Form Input Glow */
+  .input-glow-focus {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .input-glow-focus:focus-within {
+    box-shadow: 0 0 0 4px rgba(124, 179, 66, 0.15);
+    border-color: var(--primary-green);
+  }
+
+  /* Floating Label */
+  .floating-label-group {
+    position: relative;
+  }
+  .floating-label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    color: var(--muted-foreground);
+  }
+  .floating-input:focus ~ .floating-label,
+  .floating-input:not(:placeholder-shown) ~ .floating-label {
+    top: 0;
+    font-size: 0.75rem;
+    background-color: white;
+    padding: 0 0.25rem;
+    color: var(--primary-green);
+  }
+
+  /* Icon Animations */
+  .icon-bounce:hover {
+    animation: iconBounce 0.5s cubic-bezier(0.36, 0, 0.66, -0.56) both;
+    color: var(--primary-green) !important;
+  }
+  
+  .icon-rotate:hover {
+    transform: rotate(15deg) scale(1.1);
+    color: var(--primary-green) !important;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* Performance Utilities */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  .will-change-contents {
+    will-change: transform, opacity;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────
+ * CUSTOM ANIMATIONS (Keyframes)
+ * ────────────────────────────────────────────────────────────────── */
+
+@keyframes iconBounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

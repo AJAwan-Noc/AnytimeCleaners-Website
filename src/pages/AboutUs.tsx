@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { ShieldCheck, Leaf, Zap, Award, Star, Users } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import SEO from '@/components/seo/SEO';
+import { BreadcrumbSchema } from '@/components/seo/SchemaMarkup';
 
 // Counter Hook
 function useCounter(end: number, duration: number = 2000) {
@@ -74,6 +76,17 @@ export default function AboutUs() {
 
   return (
     <div className="pt-24 pb-20 min-h-screen bg-gray-50">
+      <SEO 
+        title="About Us - Our Story & Values"
+        description="Learn about Anytime Cleaners, our mission to pioneer the 'Green-Clean' revolution, and our 20+ years of experience providing top-tier cleaning in Melbourne."
+        canonical="https://anytimecleaners.com.au/about-us"
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'About Us', item: '/about-us' }
+        ]}
+      />
       
       {/* Hero Section */}
       <section className="container mx-auto px-4 max-w-6xl mb-20 text-center">
@@ -140,8 +153,10 @@ export default function AboutUs() {
               <div className="absolute inset-0 bg-gray-200 animate-pulse -z-10"></div>
               <img 
                 src="/images/team-portrait.jpg" 
-                alt="Anytime Cleaners Professional Team" 
+                alt="The Anytime Cleaners professional team bringing hygiene excellence to Melbourne" 
                 className="w-full h-[500px] object-cover"
+                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=1000';
                 }}

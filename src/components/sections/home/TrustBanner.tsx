@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { Award, ShieldCheck, Star } from 'lucide-react';
 
+import { Counter } from '@/components/ui/animated';
+
 const INDICATORS = [
-  { icon: Award, text: 'Trusted in your Area Cleaners' },
-  { icon: ShieldCheck, text: '100% Happiness Guarantee' },
-  { icon: Star, text: '5-Star Rated Service' },
+  { icon: Award, text: 'Cleaners in your Area', value: 150, prefix: '+', suffix: '' },
+  { icon: ShieldCheck, text: 'Happiness Guarantee', value: 100, prefix: '', suffix: '%' },
+  { icon: Star, text: '5-Star Rated Service', value: 500, prefix: '+', suffix: '' },
 ];
 
 export default function TrustBanner() {
@@ -21,10 +23,18 @@ export default function TrustBanner() {
               transition={{ delay: idx * 0.15, duration: 0.5 }}
               className="flex items-center gap-4 group"
             >
-              <div className="bg-white/10 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-white/10 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300 relative">
                 <item.icon className="w-8 h-8 text-primary-green-light" />
+                <div className="absolute inset-0 bg-white/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              <span className="font-heading font-bold text-lg tracking-wide">{item.text}</span>
+              <div className="flex flex-col">
+                <span className="font-heading font-extrabold text-2xl text-primary-green-light">
+                  {item.prefix && <span className="text-xl">{item.prefix}</span>}
+                  <Counter value={item.value} />
+                  {item.suffix && <span className="text-xl">{item.suffix}</span>}
+                </span>
+                <span className="font-heading font-medium text-sm tracking-wide text-white/90">{item.text}</span>
+              </div>
             </motion.div>
           ))}
         </div>

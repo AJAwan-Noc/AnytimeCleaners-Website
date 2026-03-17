@@ -15,8 +15,10 @@ export default function CommercialHero() {
       <div className="absolute inset-0 z-0 bg-bg-dark">
         <img 
           src="/service-office-cleaning.jpg" 
-          alt="Commercial Office Cleaning" 
+          alt="Professional commercial office cleaning in Melbourne" 
           className="w-full h-full object-cover opacity-50"
+          loading="lazy"
+          decoding="async"
           onError={(e) => {
             (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=2000&auto=format&fit=crop';
           }}

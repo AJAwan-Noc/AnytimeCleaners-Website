@@ -4,6 +4,40 @@ import { Star, ShieldCheck, Clock, CreditCard, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
+// Simple decorative particles component using standard HTML/CSS animations
+function Particles() {
+  return (
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      {[...Array(15)].map((_, i) => {
+        const size = Math.random() * 6 + 2;
+        return (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-white opacity-20"
+            style={{
+              width: size,
+              height: size,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -100 - Math.random() * 100],
+              x: Math.sin(i) * 30,
+              opacity: [0, 0.4, 0],
+            }}
+            transition={{
+              duration: Math.random() * 5 + 5,
+              repeat: Infinity,
+              ease: "linear",
+              delay: Math.random() * 5,
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -53,7 +87,7 @@ export default function Hero() {
     >
       {/* Background with Parallax */}
       <motion.div 
-        className="absolute inset-0 w-full h-[120%] -top-[10%] z-0"
+        className="absolute inset-0 w-full h-[120%] -top-[10%] z-0 will-change-transform"
         style={{ y }}
       >
         <div 
@@ -68,15 +102,16 @@ export default function Hero() {
       
       {/* Dark Overlay Gradient for readability */}
       <motion.div 
-        className="absolute inset-0 z-10 bg-gradient-to-r from-bg-dark/95 via-bg-dark/80 to-transparent lg:w-[80%]"
+        className="absolute inset-0 z-10 bg-gradient-to-r from-bg-dark/95 via-bg-dark/80 to-transparent lg:w-[80%] will-change-opacity"
         style={{ opacity }}
       />
-      
       <div className="absolute inset-0 z-10 bg-black/40 lg:hidden" /> {/* Extra darkening for mobile */}
+
+      <Particles />
 
       <div className="container relative z-20 mx-auto px-4 h-full flex flex-col justify-center">
         <motion.div 
-          className="max-w-3xl text-center lg:text-left"
+          className="max-w-3xl text-center lg:text-left will-change-contents"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
@@ -138,7 +173,7 @@ export default function Hero() {
 
           {/* CTAs */}
           <motion.div 
-            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 hover-underline-group"
             variants={fadeUpVariant}
           >
             {/* Pulsing idle button effect added via animation */}
@@ -159,11 +194,11 @@ export default function Hero() {
               </Button>
             </motion.div>
 
-            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-white border-white text-primary-green hover:bg-gray-100 rounded-full px-8 py-7 font-bold text-lg transition-all duration-300 hover:scale-105">
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-white border-white text-primary-green hover:bg-gray-100 rounded-full px-8 py-7 font-bold text-lg hover-card-float">
               <Link to="/contact">Get Free Quote</Link>
             </Button>
             
-            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:text-primary-green hover:bg-white rounded-full px-8 py-7 font-bold text-lg transition-all duration-300 hover:scale-105">
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:text-primary-green hover:bg-white rounded-full px-8 py-7 font-bold text-lg hover-card-float">
               <Link to="/contact">Free Cleaning Trial</Link>
             </Button>
           </motion.div>

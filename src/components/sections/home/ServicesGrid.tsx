@@ -167,7 +167,7 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.05, delayChildren: 0.1 }
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
   }
 };
 
@@ -210,7 +210,7 @@ export default function ServicesGrid() {
               {/* Perspective container to allow 3D Tilt */}
               <div style={{ perspective: "1000px" }} className="h-full w-full">
                 <TiltCard>
-                  <div className="group flex flex-col h-full bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden relative">
+                  <div className="group flex flex-col h-full bg-white rounded-2xl border border-gray-100 transition-all duration-300 overflow-hidden relative hover-card-float will-change-transform">
                     
                     {/* Top Image area */}
                     <div className="relative z-10">
@@ -219,6 +219,8 @@ export default function ServicesGrid() {
                           src={service.image} 
                           alt={service.title}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          loading="lazy"
+                          decoding="async"
                           onError={(e) => {
                             // Fallback if image not found during dev
                             (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop`;
@@ -228,7 +230,7 @@ export default function ServicesGrid() {
                       </div>
                       
                       {/* Floating Icon overlapping image and content */}
-                      <div className="absolute -bottom-6 left-6 z-10 bg-white p-3 rounded-2xl shadow-lg border border-gray-100 group-hover:-translate-y-2 transition-transform duration-300">
+                      <div className="absolute -bottom-6 left-6 z-10 bg-white p-3 rounded-2xl shadow-lg border border-gray-100 group-hover:-translate-y-2 transition-transform duration-300 icon-bounce">
                         <service.icon size={32} className="text-primary-green" />
                       </div>
                     </div>
@@ -266,7 +268,7 @@ export default function ServicesGrid() {
         </motion.div>
 
         <div className="mt-16 text-center">
-          <Button asChild size="lg" className="bg-bg-dark hover:bg-bg-navy text-white rounded-full px-10 py-6 font-bold text-lg shadow-xl hover:-translate-y-1 transition-transform">
+          <Button asChild size="lg" className="bg-bg-dark hover:bg-bg-navy text-white rounded-full px-10 py-6 font-bold text-lg shadow-xl hover-card-float">
             <Link to="/contact">Request a Custom Cleaning Plan</Link>
           </Button>
         </div>

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, User, ArrowLeft, ArrowRight } from 'lucide-react';
+import SEO from '@/components/seo/SEO';
+import { BreadcrumbSchema, BlogPostingSchema } from '@/components/seo/SchemaMarkup';
 
 interface BlogPost {
   id: string;
@@ -197,6 +199,31 @@ export default function Blogs() {
 
   return (
     <div className="pt-24 pb-20 min-h-screen bg-gray-50">
+      <SEO 
+        title={selectedPost ? selectedPost.title : "Cleaning Tips & Insights - Our Blog"}
+        description={selectedPost ? `Read our expert insights: ${selectedPost.title}` : "Expert advice for commercial and residential cleaning from Anytime Cleaners."}
+        canonical={selectedPost ? `https://anytimecleaners.com.au/blog/${selectedPost.id}` : "https://anytimecleaners.com.au/blog"}
+      />
+      <BreadcrumbSchema 
+        items={selectedPost ? [
+          { name: 'Home', item: '/' },
+          { name: 'Blog', item: '/blog' },
+          { name: selectedPost.title, item: `/blog/${selectedPost.id}` }
+        ] : [
+          { name: 'Home', item: '/' },
+          { name: 'Blog', item: '/blog' }
+        ]}
+      />
+      {selectedPost && (
+        <BlogPostingSchema 
+          title={selectedPost.title}
+          author={selectedPost.author}
+          datePublished={selectedPost.date}
+          image={selectedPost.image}
+          description={selectedPost.title} // Simplified for demo
+        />
+      )}
+      
       <div className="container mx-auto px-4 max-w-6xl">
         
         <AnimatePresence mode="wait">

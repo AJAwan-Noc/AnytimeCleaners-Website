@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { CheckCircle, PhoneCall, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { FadeUp } from '@/components/ui/animated';
 
 const FEATURES = [
   'Professional Team',
@@ -30,12 +31,14 @@ export default function WhyChooseUs() {
           <div className="w-full lg:w-1/2 relative">
             <motion.div 
               style={{ y }}
-              className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square w-full"
+              className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square w-full will-change-transform"
             >
               <img 
                 src="/team-portrait.jpg" 
-                alt="Professional Cleaning Team"
+                alt="Expert Anytime Cleaners team providing professional services in Melbourne"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop';
                 }}
@@ -44,11 +47,8 @@ export default function WhyChooseUs() {
             </motion.div>
             
             {/* Floating Badge */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8, x: -50 }}
-              whileInView={{ opacity: 1, scale: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+            <FadeUp
+              delay={0.3}
               className="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden md:block"
             >
               <div className="flex items-center gap-4">
@@ -60,17 +60,12 @@ export default function WhyChooseUs() {
                   <div className="text-brand-text-light text-sm font-semibold uppercase tracking-wider">Satisfaction</div>
                 </div>
               </div>
-            </motion.div>
+            </FadeUp>
           </div>
 
           {/* Right: Content */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center">
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <FadeUp delay={0.1}>
               <span className="text-primary-green font-bold tracking-wider uppercase text-sm mb-4 block">The Anytime Difference</span>
               <h2 className="font-heading font-extrabold text-4xl md:text-5xl text-brand-text mb-6">
                 Why 'Anytime Cleaners' Services
@@ -98,8 +93,8 @@ export default function WhyChooseUs() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-                <Button asChild size="lg" className="bg-primary-green hover:bg-primary-green-dark text-white rounded-full px-8 py-7 font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform w-full sm:w-auto">
-                  <Link to="/contact">Get An Instant Price <ArrowRight className="ml-2 w-5 h-5" /></Link>
+                <Button asChild size="lg" className="bg-primary-green hover:bg-primary-green-dark text-white rounded-full px-8 py-7 font-bold text-lg shadow-lg hover:-translate-y-1 transition-transform w-full sm:w-auto hover-card-float">
+                  <Link to="/contact">Get An Instant Price <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" /></Link>
                 </Button>
                 
                 <div className="flex items-center gap-4">
@@ -114,7 +109,7 @@ export default function WhyChooseUs() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </FadeUp>
           </div>
           
         </div>

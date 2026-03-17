@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, MessageCircleQuestion } from 'lucide-react';
+import SEO from '@/components/seo/SEO';
+import { BreadcrumbSchema, FAQSchema } from '@/components/seo/SchemaMarkup';
 
 const faqCategories = [
   "General Questions",
@@ -99,6 +101,19 @@ export default function FAQ() {
 
   return (
     <div className="pt-24 pb-20 min-h-screen bg-gray-50">
+      <SEO 
+        title="FAQ - Frequently Asked Questions"
+        description="Find answers to common questions about Anytime Cleaners' services, pricing, booking, and specialized commercial cleaning solutions in Melbourne."
+        canonical="https://anytimecleaners.com.au/faq"
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'FAQ', item: '/faq' }
+        ]}
+      />
+      <FAQSchema questions={faqs} />
+      
       <div className="container mx-auto px-4 max-w-5xl">
         
         {/* Header */}

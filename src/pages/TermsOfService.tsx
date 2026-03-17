@@ -1,10 +1,23 @@
 import { motion } from 'framer-motion';
+import SEO from '@/components/seo/SEO';
+import { BreadcrumbSchema } from '@/components/seo/SchemaMarkup';
 
 export default function TermsOfService() {
   const lastUpdated = "March 15, 2026";
 
   return (
     <div className="pt-32 pb-20 min-h-screen bg-gray-50">
+      <SEO 
+        title="Terms of Service - Our Agreement"
+        description="Read Anytime Cleaners' terms of service, including our booking, payment, and liability policies."
+        canonical="https://anytimecleaners.com.au/terms-of-service"
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Terms of Service', item: '/terms-of-service' }
+        ]}
+      />
       <div className="container mx-auto px-4 max-w-4xl">
         
         <motion.div 

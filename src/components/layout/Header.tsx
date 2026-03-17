@@ -65,6 +65,12 @@ export default function Header() {
       "fixed top-0 w-full z-50 flex flex-col transition-transform duration-300",
       isScrolled ? "lg:-translate-y-10" : ""
     )}>
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] bg-primary-green text-white px-4 py-2 rounded-lg font-bold shadow-xl"
+      >
+        Skip to main content
+      </a>
       <TopBar />
 
       <header
@@ -76,7 +82,7 @@ export default function Header() {
         <div className="container mx-auto px-4 flex items-center justify-between">
 
           {/* ── Logo ────────────────────────────────────────────── */}
-          <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
+          <Link to="/" className="flex items-center gap-2 group flex-shrink-0" aria-label="Anytime Cleaners Home">
             <div className="font-heading font-extrabold text-primary-green text-2xl tracking-tight transition-transform duration-300 group-hover:scale-105">
               Anytime<span className="text-secondary-blue">Cleaners</span>
             </div>
@@ -142,8 +148,8 @@ export default function Header() {
 
           {/* ── Desktop CTA ─────────────────────────────────────── */}
           <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
-            <div className="hidden xl:flex items-center gap-2 text-brand-text mr-2">
-              <PhoneCall size={18} className="text-secondary-blue" />
+            <div className="hidden xl:flex items-center gap-2 text-brand-text mr-2 group/phone">
+              <PhoneCall size={18} className="text-secondary-blue icon-bounce" />
               <div className="flex flex-col">
                 <span className="text-[10px] uppercase font-bold text-brand-text-muted leading-none">Call Us Now</span>
                 <a href="tel:0383857705" className="font-bold text-sm hover:text-primary-green transition-colors leading-tight">
@@ -154,7 +160,7 @@ export default function Header() {
 
             <Button
               asChild
-              className="bg-primary-green hover:bg-primary-green-dark text-white rounded-full px-6 font-semibold text-sm shadow-[0_4px_14px_rgba(124,179,66,0.4)] hover:shadow-[0_6px_20px_rgba(124,179,66,0.3)] hover:-translate-y-0.5 transition-all"
+              className="bg-primary-green hover:bg-primary-green-dark text-white rounded-full px-6 font-semibold text-sm shadow-[0_4px_14px_rgba(124,179,66,0.4)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] hover:-translate-y-1 transition-all active:scale-95"
             >
               <Link to="/contact">Book Now</Link>
             </Button>

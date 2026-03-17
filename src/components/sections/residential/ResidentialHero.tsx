@@ -15,8 +15,10 @@ export default function ResidentialHero() {
       <div className="absolute inset-0 z-0 bg-bg-dark">
         <img 
           src="/hero-residential-cleaning.jpg" 
-          alt="Professional Residential Cleaning" 
+          alt="Spotless residential home cleaning in Melbourne" 
           className="w-full h-full object-cover opacity-60"
+          loading="lazy"
+          decoding="async"
           onError={(e) => {
             (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2000&auto=format&fit=crop';
           }}

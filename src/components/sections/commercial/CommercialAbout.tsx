@@ -113,8 +113,10 @@ export default function CommercialAbout() {
             >
               <img 
                 src="/Certifications.png" 
-                alt="Triple ISO Certified Commercial Cleaning"
+                alt="Anytime Cleaners Triple ISO Certified: Quality, Safety, and Environmental Management"
                 className="w-full h-full object-contain"
+                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=800&auto=format&fit=crop';
                 }}

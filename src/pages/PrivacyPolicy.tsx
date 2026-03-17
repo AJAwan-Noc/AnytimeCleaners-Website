@@ -1,10 +1,23 @@
 import { motion } from 'framer-motion';
+import SEO from '@/components/seo/SEO';
+import { BreadcrumbSchema } from '@/components/seo/SchemaMarkup';
 
 export default function PrivacyPolicy() {
   const lastUpdated = "March 15, 2026";
 
   return (
     <div className="pt-32 pb-20 min-h-screen bg-gray-50">
+      <SEO 
+        title="Privacy Policy - Your Data Protection"
+        description="Read Anytime Cleaners' privacy policy to understand how we collect, use, and protect your personal information."
+        canonical="https://anytimecleaners.com.au/privacy-policy"
+      />
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Privacy Policy', item: '/privacy-policy' }
+        ]}
+      />
       <div className="container mx-auto px-4 max-w-4xl">
         
         <motion.div 
