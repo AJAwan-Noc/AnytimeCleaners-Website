@@ -77,11 +77,12 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { name: 'About Us',              path: '/more-info/about' },
-                { name: 'Accreditation',         path: '/more-info/accreditation' },
-                { name: 'Green Clean Revolution', path: '/more-info/environment' },
-                { name: 'Modern Slavery Policy', path: '/more-info/modern-slavery' },
-                { name: "FAQ's",                 path: '/more-info/faq' },
+                { name: 'About Us',              path: '/about-us' },
+                { name: 'Accreditation',         path: '/accreditation' },
+                { name: 'Green Clean Revolution', path: '/environmentally-responsible' },
+                { name: 'Modern Slavery Policy', path: '/modern-slavery' },
+                { name: "FAQ's",                 path: '/faq' },
+                { name: 'Areas We Clean',        path: '/areas-we-clean' },
                 { name: 'Contact Us',            path: '/contact' },
               ].map((link, i) => (
                 <li key={i} className="group">

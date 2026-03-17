@@ -1,7 +1,19 @@
+import ResidentialHero from '@/components/sections/residential/ResidentialHero';
+import ResidentialBookingForm from '@/components/sections/residential/ResidentialBookingForm';
+import ResidentialServices from '@/components/sections/residential/ResidentialServices';
+import WhatMakesUsDifferent from '@/components/sections/residential/WhatMakesUsDifferent';
+import Testimonials from '@/components/sections/home/Testimonials';
+import CTABanner from '@/components/sections/home/CTABanner';
+
 export default function ResidentialCleaning() {
   return (
-    <div className="pt-24 min-h-[50vh] flex items-center justify-center">
-      <h1 className="text-4xl font-heading text-bg-dark">Residential Cleaning Placeholder</h1>
-    </div>
+    <main className="w-full flex flex-col pt-0 pb-0">
+      <ResidentialHero />
+      <ResidentialBookingForm />
+      <ResidentialServices />
+      <WhatMakesUsDifferent />
+      <Testimonials />
+      <CTABanner />
+    </main>
   );
 }

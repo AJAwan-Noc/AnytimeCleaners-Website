@@ -213,20 +213,22 @@ export default function ServicesGrid() {
                   <div className="group flex flex-col h-full bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden relative">
                     
                     {/* Top Image area */}
-                    <div className="h-44 w-full relative overflow-hidden bg-gray-100">
-                      <img 
-                        src={service.image} 
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        onError={(e) => {
-                          // Fallback if image not found during dev
-                          (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop`;
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80" />
+                    <div className="relative z-10">
+                      <div className="h-44 w-full relative overflow-hidden bg-gray-100 flex-shrink-0">
+                        <img 
+                          src={service.image} 
+                          alt={service.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          onError={(e) => {
+                            // Fallback if image not found during dev
+                            (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop`;
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80" />
+                      </div>
                       
                       {/* Floating Icon overlapping image and content */}
-                      <div className="absolute -bottom-6 left-6 bg-white p-3 rounded-2xl shadow-lg border border-gray-100 group-hover:-translate-y-2 transition-transform duration-300">
+                      <div className="absolute -bottom-6 left-6 z-10 bg-white p-3 rounded-2xl shadow-lg border border-gray-100 group-hover:-translate-y-2 transition-transform duration-300">
                         <service.icon size={32} className="text-primary-green" />
                       </div>
                     </div>

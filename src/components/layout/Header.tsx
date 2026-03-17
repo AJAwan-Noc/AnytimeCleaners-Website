@@ -43,6 +43,7 @@ export default function Header() {
         { name: 'View All Services', path: '/residential-cleaning' },
       ],
     },
+    { name: 'Areas We Clean', path: '/areas-we-clean' },
     { name: 'Blogs',    path: '/blog' },
     { name: 'Contact',  path: '/contact' },
     {
@@ -50,10 +51,11 @@ export default function Header() {
       path: '#',
       hasDropdown: true,
       dropdownItems: [
-        { name: 'About Us',                   path: '/more-info/about' },
-        { name: 'Accreditation',              path: '/more-info/accreditation' },
-        { name: 'Environmentally Responsible', path: '/more-info/environment' },
-        { name: "FAQ's",                      path: '/more-info/faq' },
+        { name: 'About Us',                   path: '/about-us' },
+        { name: 'Accreditation',              path: '/accreditation' },
+        { name: 'Environmentally Responsible', path: '/environmentally-responsible' },
+        { name: 'Modern Slavery Policy',      path: '/modern-slavery' },
+        { name: "FAQ's",                      path: '/faq' },
       ],
     },
   ];

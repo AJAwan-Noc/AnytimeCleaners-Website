@@ -1,7 +1,17 @@
+import CommercialHero from '@/components/sections/commercial/CommercialHero';
+import CommercialAbout from '@/components/sections/commercial/CommercialAbout';
+import CommercialServices from '@/components/sections/commercial/CommercialServices';
+import CommercialBenefits from '@/components/sections/commercial/CommercialBenefits';
+import CommercialQuoteForm from '@/components/sections/commercial/CommercialQuoteForm';
+
 export default function CommercialCleaning() {
   return (
-    <div className="pt-24 min-h-[50vh] flex items-center justify-center">
-      <h1 className="text-4xl font-heading text-bg-dark">Commercial Cleaning Placeholder</h1>
+    <div className="w-full flex flex-col min-h-screen pt-20 lg:pt-0 -mt-20 lg:-mt-[116px]">
+      <CommercialHero />
+      <CommercialAbout />
+      <CommercialServices />
+      <CommercialBenefits />
+      <CommercialQuoteForm />
     </div>
   );
 }
