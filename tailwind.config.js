@@ -15,21 +15,23 @@ module.exports = {
   	},
   	extend: {
   		colors: {
-  			'primary-green': '#7CB342',
-  			'primary-green-dark': '#558B2F',
-  			'primary-green-light': '#9CCC65',
-  			'secondary-blue': '#0288D1',
-  			'secondary-blue-dark': '#01579B',
-  			'secondary-blue-light': '#29B6F6',
-  			'bg-dark': '#1A237E',
-  			'bg-navy': '#0D47A1',
-  			'bg-light': '#F5F5F5',
-  			'brand-text': '#212121',
-  			'brand-text-light': '#757575',
-  			'brand-text-muted': '#9E9E9E',
-  			'accent-yellow': '#FFD600',
-  			'accent-orange': '#FF6F00',
-  			'accent-red': '#D32F2F',
+  			'primary-green': '#A1E436',
+  			'primary-green-dark': '#8BC02C',
+  			'primary-green-light': '#B6ED5E',
+  			'secondary-blue': '#0EA2EB', // Bright Sky Blue from logo
+  			'secondary-blue-dark': '#0E2336', // Deep Navy from logo
+  			'secondary-blue-light': '#0EF7FE', // Vibrant Cyan from logo
+  			'logo-blue': '#0F9FE2', // Specific blue for company name
+  			'bg-dark': '#0E2336',
+  			'bg-navy': '#0E2336',
+  			'bg-light': '#F8FBF0', 
+  			'brand-text': '#0E2336', 
+  			'brand-text-light': '#3D4F5E',
+  			'brand-text-muted': '#6B7E8C',
+  			'accent-yellow': '#FFD600', 
+  			'accent-cyan': '#0EF7FE',
+  			'accent-orange': '#FF8F00',
+  			'accent-red': '#E53935',
   			border: 'var(--border)',
   			input: 'var(--input)',
   			ring: 'var(--ring)',
@@ -85,7 +87,7 @@ module.exports = {
   					transform: 'translateX(0%)'
   				},
   				'100%': {
-  					transform: 'translateX(-100%)'
+  					transform: 'translateX(-50%)'
   				}
   			},
   			'fade-up': {

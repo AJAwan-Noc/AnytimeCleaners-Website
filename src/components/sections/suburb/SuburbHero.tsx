@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 
 interface SuburbHeroProps {
   suburbName: string;
+  backgroundImage?: string;
 }
 
 const TRUST_BADGES = [
@@ -13,7 +14,7 @@ const TRUST_BADGES = [
   '100% Happiness Guarantee',
 ];
 
-export default function SuburbHero({ suburbName }: SuburbHeroProps) {
+export default function SuburbHero({ suburbName, backgroundImage }: SuburbHeroProps) {
   const scrollToForm = () => {
     const formSection = document.getElementById('quote-form');
     if (formSection) {
@@ -23,19 +24,30 @@ export default function SuburbHero({ suburbName }: SuburbHeroProps) {
 
   return (
     <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-bg-dark">
-      {/* Animated background grid */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-          backgroundSize: '36px 36px',
-        }}
-      />
+      {/* Background Image */}
+      {backgroundImage ? (
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={backgroundImage} 
+            alt={`Commercial cleaning in ${suburbName}`}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-bg-dark/60 backdrop-blur-[2px]" />
+        </div>
+      ) : (
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+            backgroundSize: '36px 36px',
+          }}
+        />
+      )}
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-bg-dark via-bg-navy/80 to-primary-green/20" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-br from-bg-dark via-bg-dark/80 to-primary-green/20 z-1" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-1" />
 
       {/* Decorative orbs */}
       <div className="absolute top-1/4 -right-32 w-96 h-96 bg-primary-green/10 rounded-full blur-3xl pointer-events-none" />

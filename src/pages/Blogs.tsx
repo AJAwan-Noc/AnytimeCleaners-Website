@@ -21,7 +21,7 @@ const blogPosts: BlogPost[] = [
     author: "Abdul H",
     date: "February 17, 2026",
     category: "Case Study",
-    image: "/images/service-industrial-cleaning.jpg",
+    image: "/images/Blogs/service-industrial-cleaning.jpg",
     content: (
       <div className="space-y-6 text-gray-700">
         <p className="font-semibold text-lg">
@@ -87,7 +87,7 @@ const blogPosts: BlogPost[] = [
     author: "Abdul H",
     date: "March 3, 2026",
     category: "Hospitality Cleaning",
-    image: "/images/service-hotel-cleaning.jpg",
+    image: "/images/Blogs/service-hotel-cleaning.jpg",
     content: (
       <div className="space-y-6 text-gray-700">
         <p className="font-semibold text-lg">
@@ -151,19 +151,19 @@ const blogPosts: BlogPost[] = [
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">Reputation Damage</td>
+                <td className="px-6 py-4 whitespace-nowrap font-medium text-brand-text">Reputation Damage</td>
                 <td className="px-6 py-4 text-gray-700">Drop in online review scores (TripAdvisor, Google), leading to reduced occupancy</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">Operational Time Waste</td>
+                <td className="px-6 py-4 whitespace-nowrap font-medium text-brand-text">Operational Time Waste</td>
                 <td className="px-6 py-4 text-gray-700">GM and management spending time on re-cleaning or guest issue resolution</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">Regulatory Risk</td>
+                <td className="px-6 py-4 whitespace-nowrap font-medium text-brand-text">Regulatory Risk</td>
                 <td className="px-6 py-4 text-gray-700">Fines, business disruption, or closure due to failed health/council inspections</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">Staff Morale</td>
+                <td className="px-6 py-4 whitespace-nowrap font-medium text-brand-text">Staff Morale</td>
                 <td className="px-6 py-4 text-gray-700">Housekeeping and front-of-house staff fielding guest complaints</td>
               </tr>
             </tbody>
@@ -335,7 +335,7 @@ export default function Blogs() {
                   alt={selectedPost.title} 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-8 md:p-12">
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/80 via-bg-dark/30 to-transparent flex flex-col justify-end p-8 md:p-12">
                   <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
                     {selectedPost.title}
                   </h1>

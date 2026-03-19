@@ -53,14 +53,11 @@ export default function EnvironmentallyResponsible() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="/images/eco-friendly-cleaning.jpg" 
+                src="/images/Enviroment/EnvironmentHero.png" 
                 alt="Eco-friendly non-toxic cleaning products used by Anytime Cleaners" 
                 className="w-full h-[400px] object-cover"
                 loading="lazy"
                 decoding="async"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1584820927498-cafe2c1c9af7?auto=format&fit=crop&q=80&w=1000';
-                }}
               />
             </div>
           </motion.div>

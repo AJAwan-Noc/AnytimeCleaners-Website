@@ -13,21 +13,22 @@
     --muted-foreground:  #757575;
     --border:            #E0E0E0;
     --input:             #E0E0E0;
-    --ring:              #7CB342;
+    --ring:              #A1E436;
     --radius:            0.5rem;
 
     /* Brand color CSS variables (for use in arbitrary values or custom CSS) */
-    --primary-green:        #7CB342;
-    --primary-green-dark:   #558B2F;
-    --primary-green-light:  #9CCC65;
-    --secondary-blue:       #0288D1;
-    --secondary-blue-dark:  #01579B;
-    --secondary-blue-light: #29B6F6;
-    --bg-dark:              #1A237E;
-    --bg-navy:              #0D47A1;
+    --primary-green:        #A1E436;
+    --primary-green-dark:   #8BC02C;
+    --primary-green-light:  #B6ED5E;
+    --secondary-blue:       #0EA2EB;
+    --secondary-blue-dark:  #0E2336;
+    --secondary-blue-light: #0EF7FE;
+    --bg-dark:              #0E2336;
+    --bg-navy:              #0E2336;
     --accent-yellow:        #FFD600;
-    --accent-orange:        #FF6F00;
-    --accent-red:           #D32F2F;
+    --accent-cyan:          #0EF7FE;
+    --accent-orange:        #FF8F00;
+    --accent-red:           #E53935;
   }
 }
 
@@ -57,7 +58,7 @@
   }
 
   ::selection {
-    background-color: #7CB342;
+    background-color: #A1E436;
     color: #ffffff;
   }
 }
@@ -96,7 +97,7 @@
   .hover-card-float:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border-color: rgba(124, 179, 66, 0.3); /* primary-green */
+    border-color: rgba(161, 228, 54, 0.3); /* primary-green */
   }
 
   /* Form Input Glow */
@@ -104,7 +105,7 @@
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
   }
   .input-glow-focus:focus-within {
-    box-shadow: 0 0 0 4px rgba(124, 179, 66, 0.15);
+    box-shadow: 0 0 0 4px rgba(161, 228, 54, 0.15);
     border-color: var(--primary-green);
   }
 

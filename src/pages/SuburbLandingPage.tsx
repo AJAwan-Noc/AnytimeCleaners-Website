@@ -37,7 +37,7 @@ export default function SuburbLandingPage() {
           { name: suburbData.name, item: `/commercial-cleaning/${suburbData.slug}` }
         ]}
       />
-      <SuburbHero suburbName={suburbData.name} />
+      <SuburbHero suburbName={suburbData.name} backgroundImage={suburbData.image} />
       <SuburbIntro suburbName={suburbData.name} intro={suburbData.intro} />
       <CommercialServices />
       <CommercialBenefits />

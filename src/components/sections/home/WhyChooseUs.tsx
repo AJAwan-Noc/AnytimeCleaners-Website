@@ -34,16 +34,12 @@ export default function WhyChooseUs() {
               className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square w-full will-change-transform"
             >
               <img 
-                src="/team-portrait.jpg" 
-                alt="Expert Anytime Cleaners team providing professional services in Melbourne"
+                src="/images/HomePage/TheAnytimeDifference.png" 
+                alt="The Anytime Difference - Professional cleaning team showing excellence in Melbourne"
                 className="w-full h-full object-cover"
                 loading="lazy"
                 decoding="async"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop';
-                }}
               />
-              <div className="absolute inset-0 bg-primary-green/10 mix-blend-overlay" />
             </motion.div>
             
             {/* Floating Badge */}

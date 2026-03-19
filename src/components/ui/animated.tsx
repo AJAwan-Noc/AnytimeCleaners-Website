@@ -7,7 +7,7 @@ const viewportOptions = { once: true, amount: 0.2 };
 
 // Default spring transition for smooth, natural movement
 const springTransition = {
-  type: 'spring',
+  type: 'spring' as const,
   damping: 30,
   stiffness: 100,
   mass: 1,
@@ -26,7 +26,7 @@ export function FadeUp({ children, className, delay = 0, duration = 0.6, ...prop
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={viewportOptions}
-      transition={{ ...springTransition, duration, delay }}
+      transition={{ ...springTransition, delay }}
       className={className}
       {...props}
     >
@@ -41,7 +41,7 @@ export function FadeIn({ children, className, delay = 0, duration = 0.6, ...prop
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={viewportOptions}
-      transition={{ duration, delay, ease: "easeOut" }}
+      transition={{ ...springTransition, delay }}
       className={className}
       {...props}
     >

@@ -20,6 +20,7 @@ const AreasWeClean = lazy(() => import('@/pages/AreasWeClean'));
 const PrivacyPolicy = lazy(() => import('@/pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('@/pages/TermsOfService'));
 const CookiePolicy = lazy(() => import('@/pages/CookiePolicy'));
+const Pricing = lazy(() => import('@/pages/Pricing'));
 
 // Loading component
 function PageLoader() {
@@ -39,6 +40,7 @@ function App() {
       <ScrollRestoration />
       <Suspense fallback={<PageLoader />}>
         <Routes>
+          <Route path="/pricing-direct" element={<Pricing />} />
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/commercial-cleaning" element={<CommercialCleaning />} />
@@ -54,6 +56,7 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/areas-we-clean" element={<AreasWeClean />} />
             <Route path="/commercial-cleaning/:suburb" element={<SuburbLandingPage />} />
           </Route>

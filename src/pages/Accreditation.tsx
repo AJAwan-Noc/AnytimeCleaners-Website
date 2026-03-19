@@ -100,7 +100,7 @@ export default function Accreditation() {
             className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 bg-gradient-to-br from-bg-dark to-bg-navy text-white text-center flex flex-col justify-center items-center"
           >
             <Award size={64} className="text-accent-yellow mb-4" />
-            <h3 className="text-2xl font-bold font-heading mb-2">Award-Winning Service</h3>
+            <h3 className="text-2xl font-bold font-heading mb-2 text-accent-yellow">Award-Winning Service</h3>
             <p className="text-gray-200">
               Recognized consistently for our Zero-Assumption Protocol and Green-Clean initiatives across Australia.
             </p>

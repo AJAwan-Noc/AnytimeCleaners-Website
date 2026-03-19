@@ -152,14 +152,11 @@ export default function AboutUs() {
               {/* placeholder if image misses, but team-portrait.jpg should be there */}
               <div className="absolute inset-0 bg-gray-200 animate-pulse -z-10"></div>
               <img 
-                src="/images/team-portrait.jpg" 
+                src="/images/AboutUS/AboutUs.png" 
                 alt="The Anytime Cleaners professional team bringing hygiene excellence to Melbourne" 
                 className="w-full h-[500px] object-cover"
                 loading="lazy"
                 decoding="async"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=1000';
-                }}
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-bg-dark/90 to-transparent p-8">
                 <p className="text-white font-heading font-bold text-xl flex items-center">

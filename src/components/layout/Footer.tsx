@@ -17,9 +17,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-5">
             <Link to="/" className="inline-block group">
-              <div className="font-heading font-extrabold text-primary-green text-3xl tracking-tight group-hover:scale-105 transition-transform duration-300">
-                Anytime<span className="text-white">Cleaners</span>
-              </div>
+              <img 
+                src="/images/Logo.png" 
+                alt="Anytime Cleaners Logo" 
+                className="h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300" 
+              />
             </Link>
             <p className="text-white/70 font-medium italic">"we clean it, we mean it"</p>
             <p className="text-white/50 text-sm leading-relaxed pr-4">
@@ -27,14 +29,16 @@ export default function Footer() {
             </p>
             <div className="flex gap-3 pt-1">
               {[
-                { Icon: Facebook,  label: 'Facebook' },
-                { Icon: Instagram, label: 'Instagram' },
-                { Icon: Youtube,   label: 'YouTube' },
-                { Icon: Linkedin,  label: 'LinkedIn' },
-              ].map(({ Icon, label }) => (
+                { Icon: Facebook,  label: 'Facebook', href: 'https://www.facebook.com/anytimecleaners.com.au' },
+                { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/anytime_cleaners' },
+                { Icon: Youtube,   label: 'YouTube', href: 'https://www.youtube.com/@AnytimeCleaners-2023' },
+                { Icon: Linkedin,  label: 'LinkedIn', href: 'https://www.linkedin.com/company/anytimecleaners-com-au/' },
+              ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:bg-primary-green hover:text-white hover:border-primary-green hover:-translate-y-1 transition-all duration-300 icon-rotate"
                 >

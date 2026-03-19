@@ -11,64 +11,55 @@ const SERVICES = [
     icon: Key, 
     title: 'End of Lease Cleaning', 
     desc: 'Guarantee your bond back with our comprehensive, landlord-approved deep clean.',
-    img: '/service-end-of-lease.jpg',
-    fallback: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=600&auto=format&fit=crop'
+    img: '/images/Residential/End of Lease Cleaning.png'
   },
   { 
     icon: Sparkles, 
     title: 'Deep Cleaning', 
     desc: 'Intensive top-to-bottom scrub down for homes needing a fresh, sanitary reset.',
-    img: '/service-deep-cleaning.jpg',
-    fallback: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=600&auto=format&fit=crop'
+    img: '/images/Residential/Deep Cleaning.png'
   },
   { 
     icon: Home, 
     title: 'Regular House Cleaning', 
     desc: 'Weekly or fortnightly maintenance to keep your living spaces consistently pristine.',
-    img: '/service-house-cleaning.jpg',
-    fallback: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop'
+    img: '/images/Residential/Regular House Cleaning.png'
   },
   { 
     icon: Box, 
     title: 'Move-In / Move-Out', 
     desc: 'Detailed sanitization of empty homes to ensure a fresh start for you or the next tenant.',
-    img: '/service-move-in.jpg',
-    fallback: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop'
+    img: '/images/Residential/Move-In Move-Out.png'
   },
   { 
     icon: Wind, 
     title: 'Spring Cleaning', 
     desc: 'Annual thorough clean tackling neglected areas, inside cabinets, and forgotten corners.',
-    img: '/service-spring-cleaning.jpg',
-    fallback: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop'
+    img: '/images/Residential/Spring Cleaning.png'
   },
   { 
     icon: Hammer, 
     title: 'Post-Renovation Clean', 
     desc: 'Removal of fine construction dust, paint splatters, and debris after home upgrades.',
-    img: '/service-post-reno.jpg',
-    fallback: 'https://images.unsplash.com/photo-1504307651254-35680f35e5d3?q=80&w=600&auto=format&fit=crop'
+    img: '/images/Residential/Post-Renovation Clean.png'
   },
   { 
     icon: Grid, 
     title: 'Carpet Steam Cleaning', 
     desc: 'Hot water extraction to remove stubborn stains, allergens, and pet odors from carpets.',
-    img: '/service-carpet-cleaning.jpg',
-    fallback: 'https://images.unsplash.com/photo-1558384462-1bf718e26895?q=80&w=600&auto=format&fit=crop'
+    img: '/images/Residential/Carpet Steam Cleaning.png'
   },
   { 
     icon: AppWindow, 
     title: 'Window Cleaning', 
     desc: 'Streak-free interior and exterior glass washing for crystal clear views and maximum light.',
-    img: '/service-window-cleaning.jpg',
-    fallback: 'https://images.unsplash.com/photo-1508247271458-1f48ab269785?q=80&w=600&auto=format&fit=crop'
+    img: '/images/Residential/Window Cleaning.png'
   },
   { 
     icon: Sofa, 
     title: 'Upholstery Cleaning', 
     desc: 'Gentle yet effective stain and grit removal for sofas, armchairs, and dining seats.',
-    img: '/service-upholstery.jpg',
-    fallback: 'https://images.unsplash.com/photo-1629724803704-5e5886675ca2?q=80&w=600&auto=format&fit=crop'
+    img: '/images/Residential/Upholstery Cleaning.png'
   },
 ];
 
@@ -126,11 +117,8 @@ export default function ResidentialServices() {
                   src={service.img} 
                   alt={service.title} 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = service.fallback;
-                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/60 to-transparent opacity-80" />
                 
                 {/* Floating Icon */}
                 <div className="absolute bottom-4 left-6 bg-white w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transform group-hover:-translate-y-2 transition-transform duration-300">

@@ -112,14 +112,11 @@ export default function CommercialAbout() {
               className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video lg:aspect-[4/3] w-full border-4 border-white bg-[#f7f9f8] flex items-center justify-center p-4"
             >
               <img 
-                src="/Certifications.png" 
+                src="/images/Commercial/Certifications.png" 
                 alt="Anytime Cleaners Triple ISO Certified: Quality, Safety, and Environmental Management"
                 className="w-full h-full object-contain"
                 loading="lazy"
                 decoding="async"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=800&auto=format&fit=crop';
-                }}
               />
             </motion.div>
 

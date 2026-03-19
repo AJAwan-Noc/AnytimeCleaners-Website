@@ -14,16 +14,13 @@ export default function CommercialHero() {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0 bg-bg-dark">
         <img 
-          src="/service-office-cleaning.jpg" 
+          src="/images/Commercial/CommercialHeroPage.png" 
           alt="Professional commercial office cleaning in Melbourne" 
-          className="w-full h-full object-cover opacity-50"
+          className="w-full h-full object-cover"
           loading="lazy"
           decoding="async"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=2000&auto=format&fit=crop';
-          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/60 to-transparent" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 text-center max-w-5xl mt-20">

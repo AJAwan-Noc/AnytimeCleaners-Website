@@ -48,25 +48,41 @@ export default function AreasWeClean() {
             >
               <Link 
                 to={`/commercial-cleaning/${suburb.slug}`}
-                className="group flex flex-col justify-between h-full bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary-green/30 transition-all duration-300 relative overflow-hidden"
+                className="group flex flex-col h-full bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary-green/30 transition-all duration-300 relative overflow-hidden"
               >
-                <div>
+                {/* Suburb Image Header */}
+                <div className="h-40 w-full relative overflow-hidden bg-gray-100">
+                  {suburb.image ? (
+                    <img 
+                      src={suburb.image} 
+                      alt={suburb.name} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-bg-dark to-bg-navy flex items-center justify-center opacity-80">
+                      <MapPin className="w-10 h-10 text-white/20" />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
+                </div>
+
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-primary-green/10 rounded-full flex items-center justify-center group-hover:bg-primary-green group-hover:text-white transition-colors duration-300">
-                      <MapPin className="w-5 h-5 text-primary-green group-hover:text-white" />
+                    <div className="w-8 h-8 bg-primary-green/10 rounded-full flex items-center justify-center group-hover:bg-primary-green group-hover:text-white transition-colors duration-300">
+                      <MapPin className="w-4 h-4 text-primary-green group-hover:text-white" />
                     </div>
                     <h2 className="font-heading font-bold text-xl text-brand-text group-hover:text-primary-green transition-colors">
                       {suburb.name}
                     </h2>
                   </div>
-                  <p className="text-brand-text-light text-sm line-clamp-3 mb-6">
+                  <p className="text-brand-text-light text-sm line-clamp-2 mb-6 flex-grow">
                     {suburb.intro}
                   </p>
-                </div>
-                
-                <div className="flex items-center text-primary-green font-semibold text-sm mt-auto">
-                  View Service Area
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  
+                  <div className="flex items-center text-primary-green font-semibold text-sm mt-auto">
+                    View Service Area
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
               </Link>
             </motion.div>
