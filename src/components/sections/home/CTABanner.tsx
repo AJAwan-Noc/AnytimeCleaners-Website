@@ -43,7 +43,7 @@ export default function CTABanner() {
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             className="inline-block"
           >
-            <Button asChild size="lg" className="bg-white hover:bg-gray-100 text-primary-green hover:text-primary-green-dark rounded-full px-10 py-8 font-bold text-xl shadow-[0_0_40px_rgba(255,255,255,0.3)] border-2 border-white transition-all">
+            <Button asChild size="lg" className="bg-white hover:bg-gray-100 text-primary-green hover:text-primary-green-dark rounded-full px-6 md:px-10 py-4 md:py-8 font-bold text-lg md:text-xl shadow-[0_0_40px_rgba(255,255,255,0.3)] border-2 border-white transition-all h-auto whitespace-normal text-center leading-tight">
               <Link to="/contact">Book Now - Free Demo Services Or Offers*</Link>
             </Button>
           </motion.div>

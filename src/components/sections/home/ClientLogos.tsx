@@ -22,7 +22,7 @@ export default function ClientLogos() {
         </h2>
       </div>
 
-      <div className="relative flex max-w-[100vw] overflow-hidden group">
+      <div className="relative flex w-full overflow-hidden group">
         {/* Left and Right Fade Masks */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 max-w-[200px] bg-gradient-to-r from-white to-transparent z-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 max-w-[200px] bg-gradient-to-l from-white to-transparent z-10" />
@@ -34,16 +34,13 @@ export default function ClientLogos() {
               {CLIENTS.map((client, idx) => (
                 <div 
                   key={`${listIndex}-${idx}`}
-                  className="flex items-center gap-3 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer group/logo"
+                  className="flex items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer"
                 >
                   <img 
                     src={client.image} 
                     alt={`${client.name} logo`}
-                    className="h-10 md:h-12 w-auto object-contain transition-transform duration-500 group-hover/logo:scale-110"
+                    className="h-10 md:h-12 w-auto object-contain transition-transform duration-500 hover:scale-110"
                   />
-                  <span className="font-heading font-bold text-lg text-brand-text/60 group-hover/logo:text-brand-text whitespace-nowrap transition-colors">
-                    {client.name}
-                  </span>
                 </div>
               ))}
             </div>

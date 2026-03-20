@@ -9,7 +9,7 @@ const TRUST_BADGES = [
 
 export default function CommercialHero() {
   return (
-    <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden py-24" style={{ position: 'relative' }}>
       
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0 bg-bg-dark">

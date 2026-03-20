@@ -23,7 +23,7 @@ export default function SuburbHero({ suburbName, backgroundImage }: SuburbHeroPr
   };
 
   return (
-    <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-bg-dark">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-bg-dark" style={{ position: 'relative' }}>
       {/* Background Image */}
       {backgroundImage ? (
         <div className="absolute inset-0 z-0">

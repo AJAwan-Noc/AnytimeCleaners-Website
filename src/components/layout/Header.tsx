@@ -9,7 +9,12 @@ import TopBar from './TopBar';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -162,12 +167,12 @@ export default function Header() {
           </div>
 
           {/* ── Mobile Hamburger ────────────────────────────────── */}
-          <Sheet>
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
-                className="lg:hidden text-white hover:bg-white/10 hover:text-primary-green border border-white/20"
+                className="lg:hidden text-white hover:bg-white/10 hover:text-primary-green border border-white/20 min-h-[44px] min-w-[44px]"
               >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle menu</span>
@@ -202,7 +207,7 @@ export default function Header() {
                                 <Link
                                   key={idx}
                                   to={item.path}
-                                  className="py-2 px-3 text-sm font-semibold text-brand-text hover:text-primary-green hover:bg-primary-green/5 rounded-lg transition-colors"
+                                  className="py-3 px-4 text-sm font-semibold text-brand-text hover:text-primary-green hover:bg-primary-green/5 rounded-lg transition-colors min-h-[44px] flex items-center"
                                 >
                                   {item.name}
                                 </Link>

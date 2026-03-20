@@ -84,19 +84,16 @@ export default function Hero() {
   
   // Parallax effect for the background
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 1000], [0, 300]);
   const opacity = useTransform(scrollY, [0, 600], [0.6, 0.8]);
 
   return (
     <section 
       ref={containerRef}
-      className="relative w-full min-h-screen lg:h-screen flex items-center justify-center lg:justify-start overflow-hidden pt-28 pb-12 lg:pt-20 lg:pb-0"
+      className="relative w-full min-h-[100svh] flex items-center justify-center lg:justify-start overflow-hidden pt-28 pb-12 lg:pt-24 lg:pb-16"
+      style={{ position: 'relative' }}
     >
-      {/* Background with Parallax */}
-      <motion.div 
-        className="absolute inset-0 w-full h-[120%] -top-[10%] z-0 will-change-transform"
-        style={{ y }}
-      >
+      {/* Background Image without excessive scaling to match screen size precisely */}
+      <div className="absolute inset-0 w-full h-full z-0">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
@@ -105,7 +102,7 @@ export default function Hero() {
             backgroundColor: '#0E2336'
           }}
         />
-      </motion.div>
+      </div>
       
       {/* Dark Overlay Gradient for readability */}
       <motion.div 

@@ -210,7 +210,7 @@ export default function CommercialServices() {
         </motion.div>
 
         <div className="mt-20 text-center">
-          <Button asChild size="lg" className="bg-bg-dark hover:bg-bg-navy text-white rounded-full px-12 py-8 font-bold text-xl shadow-2xl transition-all hover:-translate-y-1">
+          <Button asChild size="lg" className="bg-bg-dark hover:bg-bg-navy text-white rounded-full px-6 md:px-12 py-4 md:py-8 font-bold text-lg md:text-xl shadow-2xl transition-all hover:-translate-y-1 h-auto whitespace-normal text-center leading-tight w-full sm:w-auto">
             <Link to="/contact">Discuss Your Specific Industry Needs</Link>
           </Button>
         </div>

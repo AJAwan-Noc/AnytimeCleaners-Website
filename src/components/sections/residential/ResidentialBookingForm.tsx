@@ -254,7 +254,7 @@ export default function ResidentialBookingForm() {
                   <span className="bg-secondary-blue text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">3</span>
                   Select Extras <span className="text-sm font-normal text-gray-400">(Optional)</span>
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                   {EXTRAS.map((extra) => (
                     <div key={extra.id} className="flex items-center space-x-2 bg-gray-50 border border-gray-100 p-3 rounded-lg hover:border-secondary-blue/30 transition-colors">
                       <Checkbox 

@@ -171,14 +171,14 @@ export default function Testimonials() {
           {/* Navigation Controls */}
           <button 
             onClick={() => setCurrentIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-16 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-text hover:text-primary-green transition-colors z-10 hidden sm:flex"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-16 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-text hover:text-primary-green transition-colors z-10 hidden md:flex"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           
           <button 
             onClick={() => setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length)}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-16 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-text hover:text-primary-green transition-colors z-10 hidden sm:flex"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-16 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-text hover:text-primary-green transition-colors z-10 hidden md:flex"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -191,10 +191,13 @@ export default function Testimonials() {
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
-              className={`h-2 rounded-full transition-all duration-300 ${
+              className="p-2 -m-2 mx-1"
+              aria-label={`Go to slide ${idx + 1}`}
+            >
+              <div className={`h-2 rounded-full transition-all duration-300 ${
                 idx === currentIndex ? 'w-8 bg-primary-green' : 'w-2 bg-gray-300 hover:bg-gray-400'
-              }`}
-            />
+              }`} />
+            </button>
           ))}
         </div>
 

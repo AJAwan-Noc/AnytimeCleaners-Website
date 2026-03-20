@@ -9,7 +9,7 @@ const TRUST_BADGES = [
 
 export default function ResidentialHero() {
   return (
-    <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden py-24" style={{ position: 'relative' }}>
       
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0 bg-bg-dark">
@@ -32,10 +32,10 @@ export default function ResidentialHero() {
            transition={{ duration: 0.8, ease: "easeOut" }}
            className="mb-12"
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-secondary-blue/20 text-blue-300 font-bold text-sm tracking-widest uppercase mb-6 border border-secondary-blue/30">
+          <span className="inline-block py-1 px-3 rounded-full bg-secondary-blue/20 text-blue-300 font-bold text-xs md:text-sm tracking-widest uppercase mb-6 border border-secondary-blue/30 whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
             No Worries, Mate — We'll Make It Shine!
           </span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
             We Do It <span className="text-secondary-blue">All</span> for you
           </h1>
           <p className="text-xl md:text-2xl text-white/90 font-medium">

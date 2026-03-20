@@ -141,7 +141,7 @@ export default function ResidentialCalculator() {
                             bedrooms === opt.key
                               ? 'border-primary-green bg-primary-green/5 shadow-md'
                               : 'border-gray-100 bg-white'
-                          }`}
+                          } ${opt.key === '5plus' ? 'col-span-2 sm:col-span-1' : ''}`}
                         >
                           <span className="font-heading font-bold text-brand-text text-sm block">
                             {opt.label}
@@ -201,7 +201,7 @@ export default function ResidentialCalculator() {
                     <h3 className="font-heading font-bold text-xl text-brand-text mb-6">
                       How often would you like us to clean?
                     </h3>
-                    <div className="grid grid-cols-2 gap-3 mb-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                       {FREQUENCY_OPTIONS.map((freq) => (
                         <button
                           key={freq.key}
