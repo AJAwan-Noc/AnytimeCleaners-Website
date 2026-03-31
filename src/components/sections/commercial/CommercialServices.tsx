@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useRef, type MouseEvent, type PropsWithChildren } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { 
   Building2, Factory, ShoppingBag, Stethoscope, 
   GraduationCap, Utensils, Zap, Hotel, Plane,
@@ -7,6 +8,58 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+
+// --- Tilt Card Wrapper ---
+const TiltCard = ({ children, className }: PropsWithChildren<{ className?: string }>) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      className={`relative w-full h-full ${className || ''}`}
+    >
+      <div 
+        style={{ transform: "translateZ(40px)" }}
+        className="h-full"
+      >
+        {children}
+      </div>
+    </motion.div>
+  );
+};
 
 const SERVICES = [
   { 
@@ -165,23 +218,30 @@ export default function CommercialServices() {
             <motion.div 
               key={index} 
               variants={cardVariants}
-              className="group bg-white rounded-3xl shadow-sm border border-gray-100 hover:shadow-2xl hover:border-primary-green/20 transition-all duration-500 relative overflow-hidden flex flex-col h-full"
+              className="h-full perspective-1000"
             >
-              {/* Image Header */}
-              <div className="relative h-56 w-full overflow-hidden bg-gray-200">
-                <img 
-                  src={service.image} 
-                  alt={`${service.title} cleaning service`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                
-                {/* Floating Icon */}
-                <div className="absolute -bottom-6 right-8 w-14 h-14 bg-white rounded-2xl shadow-lg border border-gray-100 flex items-center justify-center z-10 group-hover:-translate-y-2 transition-transform duration-300">
-                  <service.icon className="w-7 h-7 text-primary-green" />
-                </div>
-              </div>
+              <TiltCard>
+                <div className="group bg-white rounded-3xl shadow-sm border border-gray-100 hover:shadow-2xl hover:border-primary-green/20 transition-all duration-500 relative overflow-hidden flex flex-col h-full">
+                  {/* Image Header */}
+                  <div className="relative z-10 w-full">
+                    <div className="relative h-56 w-full overflow-hidden bg-gray-200 flex-shrink-0">
+                      <img 
+                        src={service.image} 
+                        alt={`${service.title} cleaning service`}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    </div>
+                    
+                    {/* Floating Icon - Layered on top with z-index and 3D depth */}
+                    <div 
+                      className="absolute -bottom-6 left-8 w-14 h-14 bg-white rounded-2xl shadow-xl border border-gray-100 flex items-center justify-center z-30 group-hover:-translate-y-2 transition-transform duration-300 pointer-events-none icon-bounce"
+                      style={{ transform: "translateZ(60px)" }}
+                    >
+                      <service.icon className="w-7 h-7 text-primary-green" />
+                    </div>
+                  </div>
 
               {/* Content area */}
               <div className="p-8 pt-10 flex flex-col flex-1">
@@ -203,8 +263,10 @@ export default function CommercialServices() {
                 </div>
               </div>
               
-              {/* Bottom animated border */}
-              <div className="absolute bottom-0 left-0 h-1.5 bg-primary-green w-0 group-hover:w-full transition-all duration-500 ease-out" />
+                  {/* Bottom animated border */}
+                  <div className="absolute bottom-0 left-0 h-1.5 bg-primary-green w-0 group-hover:w-full transition-all duration-500 ease-out" />
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>

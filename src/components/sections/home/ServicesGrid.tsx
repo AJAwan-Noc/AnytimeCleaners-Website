@@ -229,8 +229,11 @@ export default function ServicesGrid() {
                         <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/60 to-transparent opacity-80" />
                       </div>
                       
-                      {/* Floating Icon overlapping image and content */}
-                      <div className="absolute -bottom-6 left-6 z-10 bg-white p-3 rounded-2xl shadow-lg border border-gray-100 group-hover:-translate-y-2 transition-transform duration-300 icon-bounce">
+                      {/* Floating Icon - Layered on top with z-index and 3D depth */}
+                      <div 
+                        className="absolute -bottom-6 left-6 z-30 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 group-hover:-translate-y-2 transition-transform duration-300 icon-bounce pointer-events-none"
+                        style={{ transform: "translateZ(60px)" }}
+                      >
                         <service.icon size={32} className="text-primary-green" />
                       </div>
                     </div>

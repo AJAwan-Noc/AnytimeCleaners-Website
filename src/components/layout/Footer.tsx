@@ -111,7 +111,7 @@ export default function Footer() {
                 <MapPin size={18} className="text-primary-green flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-white font-medium text-sm">Melbourne Office</p>
-                  <p className="text-white/50 text-sm mt-0.5">Ground Floor, 470 St Kilda Road,<br />Melbourne VIC 3004</p>
+                  <p className="text-white/50 text-sm mt-0.5">Level 1/236 Caroline Springs Blvd ,<br />Caroline Springs, Victoria, Australia 3023</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">

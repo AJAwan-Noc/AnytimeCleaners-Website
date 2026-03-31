@@ -19,7 +19,7 @@ export default function SuburbLandingPage() {
   }
 
   return (
-    <div className="w-full flex flex-col min-h-screen pt-20 lg:pt-0 -mt-20 lg:-mt-[116px]">
+    <div className="w-full flex flex-col min-h-screen pt-24 lg:pt-0 -mt-24 lg:-mt-[100px]">
       <SEO 
         title={`Commercial Cleaning ${suburbData.name} Melbourne`}
         description={`Professional commercial and office cleaning services in ${suburbData.name}, Melbourne. Get a free quote for expert cleaning tailored to your ${suburbData.name} business.`}

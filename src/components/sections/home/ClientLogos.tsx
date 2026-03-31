@@ -28,18 +28,18 @@ export default function ClientLogos() {
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 max-w-[200px] bg-gradient-to-l from-white to-transparent z-10" />
 
         {/* Marquee Container (paused on hover) */}
-        <div className="flex w-max animate-marquee hover:[animation-play-state:paused] ease-linear py-12">
+        <div className="flex w-[200%] md:w-max animate-marquee hover:[animation-play-state:paused] ease-linear py-12">
           {[...Array(2)].map((_, listIndex) => (
-            <div key={listIndex} className="flex gap-16 md:gap-40 px-12 md:px-20 items-center">
+            <div key={listIndex} className="flex flex-shrink-0 gap-16 md:gap-40 px-12 md:px-20 items-center justify-around w-1/2 md:w-auto">
               {CLIENTS.map((client, idx) => (
                 <div 
                   key={`${listIndex}-${idx}`}
-                  className="flex items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer"
+                  className="flex flex-shrink-0 items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer"
                 >
                   <img 
                     src={client.image} 
                     alt={`${client.name} logo`}
-                    className="h-10 md:h-12 w-auto object-contain transition-transform duration-500 hover:scale-110"
+                    className="h-10 md:h-12 w-auto max-w-[150px] md:max-w-none object-contain transition-transform duration-500 hover:scale-110"
                   />
                 </div>
               ))}

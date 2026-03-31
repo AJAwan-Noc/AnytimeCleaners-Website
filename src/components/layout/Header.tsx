@@ -60,15 +60,15 @@ export default function Header() {
       <header
         className={cn(
           'w-full transition-all duration-300 ease-in-out border-b border-white/5',
-          isScrolled ? 'bg-bg-dark/95 backdrop-blur-md shadow-lg py-1' : 'bg-bg-dark py-5',
+          isScrolled ? 'bg-bg-dark/95 backdrop-blur-md shadow-lg py-1' : 'bg-bg-dark py-2 lg:py-3',
         )}
       >
-        <div className="container mx-auto px-4 flex items-center justify-between gap-12 xl:gap-20">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 flex items-center justify-between gap-2 lg:gap-4 xl:gap-6 2xl:gap-10">
 
           {/* ── Logo ────────────────────────────────────────────── */}
           <Link 
             to="/" 
-            className="flex items-center gap-4 group flex-shrink-0 transition-all duration-300" 
+            className="flex items-center gap-2 xl:gap-3 group flex-shrink-0 transition-all duration-300" 
             aria-label="Anytime Cleaners Home"
           >
             <img
@@ -76,12 +76,13 @@ export default function Header() {
               alt="Anytime Cleaners Logo"
               className={cn(
                 "w-auto object-contain transition-all duration-500 group-hover:scale-105",
-                isScrolled ? "h-14" : "h-16 md:h-20"
+                isScrolled ? "h-9 sm:h-10 lg:h-11" : "h-10 sm:h-12 md:h-13 lg:h-14 xl:h-16"
               )}
             />
+            {/* Logo text: hidden below xl, visible on xl+ for space efficiency */}
             <span className={cn(
-              "hidden sm:flex items-baseline gap-1.5 font-heading font-extrabold text-2xl md:text-3xl tracking-tighter transition-all duration-500",
-              isScrolled ? "opacity-0 invisible w-0 -ml-10 overflow-hidden" : "opacity-100 visible w-auto ml-0"
+              "hidden xl:flex items-baseline gap-1.5 font-heading font-extrabold text-xl 2xl:text-2xl tracking-tighter transition-all duration-500",
+              isScrolled ? "opacity-0 invisible w-0 -ml-8 overflow-hidden" : "opacity-100 visible w-auto ml-0"
             )}>
               <span className="text-primary-green">Anytime</span>
               <span className="text-logo-blue">Cleaners</span>
@@ -89,34 +90,34 @@ export default function Header() {
           </Link>
 
           {/* ── Desktop Nav ─────────────────────────────────────── */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 justify-start flex-1 ml-4 lg:ml-8">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 justify-center flex-1 min-w-0">
             {navLinks.map((link) =>
               link.hasDropdown ? (
                 <DropdownMenu key={link.name}>
                   <DropdownMenuTrigger asChild>
                     <button
                       className={cn(
-                        'flex items-center gap-1 px-3 py-2 rounded-md font-semibold text-sm transition-colors uppercase tracking-wide',
+                        'flex items-center gap-1 px-1.5 xl:px-2.5 py-1.5 rounded-md font-semibold text-xs xl:text-[13px] transition-colors uppercase tracking-tight whitespace-nowrap',
                         location.pathname.startsWith(link.path) && link.path !== '#'
                           ? 'text-primary-green bg-primary-green/10'
                           : 'text-white hover:text-primary-green hover:bg-white/5',
                       )}
                     >
                       {link.name}
-                      <ChevronDown size={14} className="opacity-60" />
+                      <ChevronDown size={13} className="opacity-60" />
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
                     align="start"
-                    className="w-56 p-2 bg-white border border-gray-100 shadow-xl rounded-xl"
+                    className="w-56 p-1.5 bg-white border border-gray-100 shadow-xl rounded-xl"
                   >
                     {link.dropdownItems?.map((item, idx) => (
                       <DropdownMenuItem
                         key={idx}
                         asChild
-                        className="cursor-pointer rounded-lg py-2.5 focus:bg-bg-dark focus:text-white"
+                        className="cursor-pointer rounded-lg py-2 focus:bg-bg-dark focus:text-white"
                       >
-                        <Link to={item.path} className="font-medium text-sm w-full block">
+                        <Link to={item.path} className="font-medium text-[13px] w-full block">
                           {item.name}
                         </Link>
                       </DropdownMenuItem>
@@ -128,7 +129,7 @@ export default function Header() {
                   key={link.name}
                   to={link.path}
                   className={cn(
-                    'px-3 py-2 rounded-md font-semibold text-sm transition-colors uppercase tracking-wide relative group',
+                    'px-1.5 xl:px-2.5 py-1.5 rounded-md font-semibold text-xs xl:text-[13px] transition-colors uppercase tracking-tight relative group whitespace-nowrap',
                     location.pathname === link.path
                       ? 'text-primary-green'
                       : 'text-white hover:text-primary-green',
@@ -137,7 +138,7 @@ export default function Header() {
                   {link.name}
                   <span
                     className={cn(
-                      'absolute bottom-0 left-3 right-3 h-0.5 bg-primary-green rounded-full transition-transform duration-300 origin-left',
+                      'absolute bottom-0 left-1.5 right-1.5 h-0.5 bg-primary-green rounded-full transition-transform duration-300 origin-left',
                       location.pathname === link.path ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100',
                     )}
                   />
@@ -147,12 +148,13 @@ export default function Header() {
           </nav>
 
           {/* ── Desktop CTA ─────────────────────────────────────── */}
-          <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
-            <div className="hidden xl:flex items-center gap-2 text-white mr-2 group/phone">
-              <PhoneCall size={18} className="text-secondary-blue icon-bounce" />
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3 flex-shrink-0">
+            {/* Phone: only on 2xl+ to avoid crowding */}
+            <div className="hidden 2xl:flex items-center gap-1.5 text-white mr-1 group/phone">
+              <PhoneCall size={16} className="text-secondary-blue icon-bounce" />
               <div className="flex flex-col">
-                <span className="text-[10px] uppercase font-bold text-white/60 leading-none">Call Us Now</span>
-                <a href="tel:0383857705" className="font-bold text-sm hover:text-primary-green transition-colors leading-tight text-white">
+                <span className="text-[9px] uppercase font-bold text-white/60 leading-none">Call Us Now</span>
+                <a href="tel:0383857705" className="font-bold text-[13px] hover:text-primary-green transition-colors leading-tight text-white">
                   03 8385 7705
                 </a>
               </div>
@@ -160,7 +162,7 @@ export default function Header() {
 
             <Button
               asChild
-              className="bg-primary-green hover:bg-primary-green-dark text-white rounded-full px-6 font-semibold text-sm shadow-[0_4px_14px_rgba(161,228,54,0.4)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] hover:-translate-y-1 transition-all active:scale-95"
+              className="bg-primary-green hover:bg-primary-green-dark text-white rounded-full px-3.5 xl:px-5 py-1.5 h-10 font-semibold text-xs xl:text-[13px] shadow-[0_4px_14px_rgba(161,228,54,0.4)] transition-all active:scale-95"
             >
               <Link to="/contact">Book Now</Link>
             </Button>
@@ -179,11 +181,11 @@ export default function Header() {
               </Button>
             </SheetTrigger>
 
-            <SheetContent side="right" className="w-full sm:w-[400px] border-l-0 shadow-2xl p-0 bg-white">
+            <SheetContent side="right" className="w-[85vw] max-w-[400px] border-l-0 shadow-2xl p-0 bg-white">
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
               <div className="flex flex-col h-full">
-                <div className="p-6 border-b border-gray-100 flex items-center">
+                <div className="p-5 sm:p-6 border-b border-gray-100 flex items-center">
                   <Link to="/" className="flex items-center gap-2 group flex-shrink-0" aria-label="Anytime Cleaners Home">
                     <img
                       src="/images/Logo.png"
@@ -193,7 +195,7 @@ export default function Header() {
                   </Link>
                 </div>
 
-                <div className="flex-1 overflow-y-auto py-4 px-4">
+                <div className="flex-1 overflow-y-auto py-4 px-3 sm:px-4">
                   <nav className="flex flex-col">
                     {navLinks.map((link) => (
                       <div key={link.name} className="border-b border-gray-100 last:border-0">
@@ -207,7 +209,7 @@ export default function Header() {
                                 <Link
                                   key={idx}
                                   to={item.path}
-                                  className="py-3 px-4 text-sm font-semibold text-brand-text hover:text-primary-green hover:bg-primary-green/5 rounded-lg transition-colors min-h-[44px] flex items-center"
+                                  className="py-3 px-3 sm:px-4 text-sm font-semibold text-brand-text hover:text-primary-green hover:bg-primary-green/5 rounded-lg transition-colors min-h-[44px] flex items-center"
                                 >
                                   {item.name}
                                 </Link>
@@ -228,7 +230,7 @@ export default function Header() {
                   </nav>
                 </div>
 
-                <div className="p-6 bg-gray-50 border-t border-gray-100">
+                <div className="p-5 sm:p-6 bg-gray-50 border-t border-gray-100">
                   <Button
                     asChild
                     className="w-full bg-primary-green hover:bg-primary-green-dark text-white rounded-full py-6 font-semibold shadow-lg text-base mb-4"

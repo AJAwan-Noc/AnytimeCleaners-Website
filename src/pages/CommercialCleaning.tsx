@@ -8,7 +8,7 @@ import CommercialQuoteForm from '@/components/sections/commercial/CommercialQuot
 
 export default function CommercialCleaning() {
   return (
-    <div className="w-full flex flex-col min-h-screen pt-20 lg:pt-0 -mt-20 lg:-mt-[116px]">
+    <div className="w-full flex flex-col min-h-screen pt-24 lg:pt-0 -mt-24 lg:-mt-[100px]">
       <SEO 
         title="Commercial Cleaning Melbourne - Professional Office & Industrial Cleaning"
         description="Anytime Cleaners offers top-tier commercial cleaning services in Melbourne. From corporate offices to industrial plants, we provide customized cleaning solutions."

@@ -102,8 +102,7 @@ export default function PrivacyPolicy() {
               <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 text-sm">
                 <p><strong>Email:</strong> info@anytimecleaners.com.au</p>
                 <p><strong>Phone:</strong> 03 8385 7705</p>
-                <p><strong>Office 1:</strong> Level 1/236 Caroline Springs Blvd, Caroline Springs, VIC 3023</p>
-                <p><strong>Office 2:</strong> Ground Floor, 470 St Kilda Road, Melbourne, VIC 3004</p>
+                <p><strong>Office:</strong> Level 1/236 Caroline Springs Blvd, Caroline Springs, Victoria, Australia 3023</p>
               </div>
             </section>
 

@@ -2,7 +2,7 @@ import { Mail, Phone, Clock, Facebook, Instagram, Youtube, Linkedin } from 'luci
 
 export default function TopBar() {
   return (
-    <div className="w-full h-10 bg-white text-brand-text hidden lg:flex items-center border-b border-gray-100 flex-shrink-0">
+    <div className="w-full h-9 bg-white text-brand-text hidden lg:flex items-center border-b border-gray-100 flex-shrink-0">
       <div className="container mx-auto px-4 flex justify-between items-center text-xs font-medium w-full">
         <div className="flex items-center gap-5">
           <a href="mailto:info@anytimecleaners.com.au" className="flex items-center gap-1.5 hover:text-primary-green transition-colors">

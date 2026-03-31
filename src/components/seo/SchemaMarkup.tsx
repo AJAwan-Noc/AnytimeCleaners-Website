@@ -11,16 +11,16 @@ export function LocalBusinessSchema() {
     "telephone": "0383857705",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Ground Floor, 470 St Kilda Road",
-      "addressLocality": "Melbourne",
+      "streetAddress": "Level 1/236 Caroline Springs Blvd",
+      "addressLocality": "Caroline Springs",
       "addressRegion": "VIC",
-      "postalCode": "3004",
+      "postalCode": "3023",
       "addressCountry": "AU"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": -37.8407,
-      "longitude": 144.9765
+      "latitude": -37.7420,
+      "longitude": 144.7351
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
